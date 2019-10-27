@@ -28,6 +28,8 @@ module.exports = (()=>{
 
 			res.status(200).send({message: "Hello World!"});
 		});
+
+		app.use('/scraper', require('./scraper/routes'));
 	}
 
 	_initialize();
