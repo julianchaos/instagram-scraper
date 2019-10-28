@@ -6,7 +6,7 @@ module.exports = (() => {
             const { user } = request.params;
 
             const scraperService = new ScraperService;
-            scraperService.scrapUser(user);
+            await scraperService.scrapUser(user);
 
             const data = scraperService.images;
 

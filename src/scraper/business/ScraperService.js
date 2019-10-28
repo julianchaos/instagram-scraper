@@ -1,8 +1,9 @@
+const Scraper = require('./Scraper');
 
 class ScraperService {
 
-    set images(image) {
-        this._images.push(image);
+    set images(images) {
+        this._images = images;
     }
     get images() {
         return this._images;
@@ -12,7 +13,10 @@ class ScraperService {
         this._images = [];
     }
 
-    scrapUser(user) {}
+    async scrapUser(user) {
+        let scraper = new Scraper(user);
+        this.images = Array.from(await scraper.scrap());
+    }
 
 }
 
