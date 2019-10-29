@@ -4,7 +4,8 @@
   "description": "An Instagram scraper based on Node.js",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "docker:build": "docker build -t julianchaos/instagram-scraper ."
   },
   "author": "Julian Andrade <julian@ndrade.com.br>",
   "license": "ISC",
