@@ -1,8 +1,9 @@
 const redis = require('redis');
+const config = require('config');
 
 class DatabaseService {
     static getClient() {
-        return redis.createClient();
+        return redis.createClient(`redis://${config.get('redis').url}`);
     }
     static saveImages(data) {
         const client = DatabaseService.getClient();
