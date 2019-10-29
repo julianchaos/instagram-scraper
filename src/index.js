@@ -7,6 +7,7 @@ module.exports = (()=>{
 		_configBodyParser();
 		_configCors();
 		_setRoutes();
+		_setInternalMessaging();
 	}
 
 	function _configBodyParser() {
@@ -30,6 +31,13 @@ module.exports = (()=>{
 		});
 
 		app.use('/scraper', require('./scraper/routes'));
+	}
+
+	function _setInternalMessaging() {
+		const hydra = hydraExpress.getHydra();
+		hydra.on('message', (message) => {
+			console.log('message received: ', message);
+		});
 	}
 
 	_initialize();

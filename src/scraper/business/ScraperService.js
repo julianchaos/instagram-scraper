@@ -1,8 +1,22 @@
+const hydraExpress = require('hydra-express');
 const Scraper = require('./Scraper');
 
 class ScraperService {
 
     set images(images) {
+        const hydra = hydraExpress.getHydra();
+        const serviceName = hydra.getServiceName();
+
+        const message = hydra.createUMFMessage({
+            to: serviceName + ':/',
+            from: serviceName + ':/',
+            type: 'add-images-to-database',
+            body: {
+                data: images
+            }
+        });
+        hydra.sendMessage(message);
+
         this._images = images;
     }
     get images() {
