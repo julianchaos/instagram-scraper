@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "hydra-express": "^1.7.1",
     "puppeteer": "^2.0.0",
+    "redis": "^2.8.0",
     "require-directory": "^2.1.1"
   }
 }
