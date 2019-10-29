@@ -43,10 +43,9 @@ class Scraper {
             nodes.forEach(element => {
                 this.items.add(element)
             });
-
-            return this.items;
-
         }
+
+        return this.items;
 
     }
 }
