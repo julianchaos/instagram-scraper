@@ -1,6 +1,9 @@
 module.exports = (()=>{
     const hydraExpress = require('hydra-express');
 	const express = hydraExpress.getExpress();
+	const hydra = hydraExpress.getHydra();
+	const InternalMessagingService = require('./commom/business/InternalMessagingService');
+
 	let app = express.Router();
 
 	function _initialize() {
@@ -34,10 +37,7 @@ module.exports = (()=>{
 	}
 
 	function _setInternalMessaging() {
-		const hydra = hydraExpress.getHydra();
-		hydra.on('message', (message) => {
-			console.log('message received: ', message);
-		});
+		hydra.on('message', InternalMessagingService.messageHandler);
 	}
 
 	_initialize();

@@ -1,5 +1,6 @@
 const hydraExpress = require('hydra-express');
 const Scraper = require('./Scraper');
+const { message_type } = require('./../../commom/business/internalMessaging.enum');
 
 class ScraperService {
 
@@ -10,7 +11,7 @@ class ScraperService {
         const message = hydra.createUMFMessage({
             to: serviceName + ':/',
             from: serviceName + ':/',
-            type: 'add-images-to-database',
+            type: message_type.add_images_to_database,
             body: {
                 data: images
             }
