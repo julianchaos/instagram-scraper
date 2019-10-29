@@ -15,7 +15,10 @@ class Scraper {
     }
 
     async scrap() {
-        this.browser = await puppeteer.launch();
+        this.browser = await puppeteer.launch({
+            executablePath: '/usr/bin/chromium-browser',
+            args: ['--disable-dev-shm-usage', '--no-sandbox']
+        });
         this.page = await this.browser.newPage();
 
         await this.page.goto(this.url, {
