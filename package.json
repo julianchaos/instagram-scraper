@@ -4,7 +4,7 @@
   "description": "An Instagram scraper based on Node.js",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Julian Andrade <julian@ndrade.com.br>",
   "license": "ISC",
