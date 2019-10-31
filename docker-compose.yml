@@ -1,0 +1,17 @@
+version: '2.1'
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    expose:
+      - 6379
+
+  web:
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    links:
+      - redis
+    ports:
+      - 3030:3030
