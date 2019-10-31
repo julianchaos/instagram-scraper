@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const InternalMessageService = require('./../../commom/business/InternalMessagingService');
 
 class Scraper {
 
@@ -44,10 +45,12 @@ class Scraper {
             });
 
             nodes.forEach(element => {
-                this.items.add(element)
+                this.items.add(element);
+                InternalMessageService.queue_saveImageToDatabase(element);
             });
         }
 
+        InternalMessageService.send_processQueue();
         return this.items;
 
     }
